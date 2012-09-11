@@ -1,42 +1,65 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>CMS Javascript</title>
-		<link rel="stylesheet" type="text/css" href="css/reset.css" /> 
-		<link rel="stylesheet" type="text/css" href="css/style.css" /> 
-		<link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
+  <head>
+    <title>Frontend V2</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="prettify/prettify.css" /> 
-		
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/hashchange.js"></script>
+    <link rel="stylesheet" type="text/css" href="prettify/prettify.css" /> 
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hashchange.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-		<script type="text/javascript" src="prettify/prettify.js"></script>
-	</head>
+    <script type="text/javascript" src="prettify/prettify.js"></script>
+  </head>
   <body onload="prettyPrint();">
-	
-	<div class="slide">
-	  <h2>CMS HTML & Javascript</h2>
-    <img src="img/logo-bi.png" />
-	  <h3>Organizational Patterns, Reusable DOM Components, Consistent Code Base</h3>
-  </div>
-	 
+  
   <div class="slide">
-    <h3 style="font-size: 30px; line-height: 40px">Current lack of a global organizational pattern makes it difficult to reuse great DOM components, resulting in a glut of very different code doing the same thing.</h2>
+    <h2>Frontend V2</h2>
+    <img src="img/logo-bi.png" />
+    <h3>Organizational Patterns, Reusable DOM Components, Consistent Code Base</h3>
+  </div>
+   
+  <div class="slide">
+    <h2>The Problem</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Lack of a global organizational pattern makes it difficult to reuse great DOM components, resulting in a glut of very different code doing the same thing.</h2>
       <h3 class="animStep">Organizational Patterns</h3>
       <h3 class="animStep">Reusable DOM Components</h3>
       <h3 class="animStep">Consistant Code Base</h3>
   </div>
+
+
   <div class="slide">
-    <h3 style="font-size: 30px; line-height: 40px">By using the Revealing Module Pattern and writing Library Plugins we can utilize the standardized features of Knockout.js to create a Consistent HTML/JS codebase for the CMS.</h2>
+    <h2>The Solution</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">By using the Revealing Module Pattern and writing Library Plugins we can utilize the standardized features of Knockout.js to create a Consistent Frontend Codebase.</h2>
       <h3 class="animStep">Revealing Module Pattern</h3>
       <h3 class="animStep">Library Plugins</h3>
       <h3 class="animStep">Knockout.js</h3>
   </div>
   
+  <div class="slide">
+    <h2>The Scope</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Providing a JS framework for the User-Facing Frontend, and a JS/HTML/CSS Framework for the CMS</h2>
+      <h3 class="animStep">Cleaning up all javascript code</h3>
+      <h3 class="animStep">Providing a blackbox for CMS functionality</h3>
+      <h3 class="animStep">Simple integration points with existing code</h3>
+  </div>
+
+  <div class="slide">
+    <h2>Changes</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">How does this effect day-to-day coding?</h2>
+      <h3 class="animStep">New CMS forms should be written using knockout</h3> <!-- controllers provide & accept json -->
+      <h3 class="animStep">New CMS components should be written as jQuery plugins w/ knockout adapters</h3> <!-- modify form fields-->
+      <h3 class="animStep">Library code should be namespaced appropriately in the BI hierarchy</h3>
+
+      <h3 class="animStep">No more generating CMS forms with PHP</h3>
+      <h3 class="animStep">All non-library JS components should be encapsulated into modules</h3> <!-- no more inline, etc -->
+  </div>  
+
   <ul class="slide_list">
 
   </ul>
   <button>List</button>
-	</body>
+  </body>
 </html>
