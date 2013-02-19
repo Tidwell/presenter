@@ -1,65 +1,314 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Frontend V2</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css" /> 
-    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
-    <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="prettify/prettify.css" /> 
-    
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/hashchange.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="prettify/prettify.js"></script>
-  </head>
-  <body onload="prettyPrint();">
-  
+<head>
+  <title>Javascript Best Practices and Conventions</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="prettify/prettify.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/hashchange.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="prettify/prettify.js"></script>
+</head>
+<body onload="prettyPrint();">
   <div class="slide">
-    <h2>Frontend V2</h2>
+    <h2>Javascript Best Practices and Conventions</h2>
     <img src="img/logo-bi.png" />
-    <h3>Organizational Patterns, Reusable DOM Components, Consistent Code Base</h3>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3>The little details.</h3>
   </div>
-   
   <div class="slide">
-    <h2>The Problem</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Lack of a global organizational pattern makes it difficult to reuse great DOM components, resulting in a glut of very different code doing the same thing.</h2>
-      <h3 class="animStep">Organizational Patterns</h3>
-      <h3 class="animStep">Reusable DOM Components</h3>
-      <h3 class="animStep">Consistant Code Base</h3>
+    <h2 class="animStep">Organization</h2>
+    <br />
+    <h2 class="animStep">Conventions</h2>
+    <br />
+    <h2 class="animStep">Sanity</h2>
+  </div>
+  <div class="slide" style="text-align: center">
+    <h2>Organization - Filesystem</h2>
+    <img src="img/assets-CMS-folders.png" style="display: inline-block"/>
+    <img src="img/legacy.png" style="display: inline-block"/>
+  </div>
+  <div class="slide">
+    <h2>Organization - Method to the Madness</h2>
+    <div class="animStep">
+      <h3>Everything Everywhere</h3>
+      <h4>Only use addJS for passing data, not scripts</h4>
+    </div>
+    <br />
+    <h3 class="animStep">Minification instruction on the wiki</h3>
+    <br />
+    <br />
+    <div class="animStep">
+      <h2>CMS</h2>
+      <h3>
+        configs/cms.php
+        <br />
+        /assets/CMS/assets/templates/fragments/js.tpl.php
+      </h3>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="animStep">
+      <h2>Frontend</h2>
+      <h3>configs/frontend.php</h3>
+    </div>
+  </div>
+  <div class="slide" style="text-align: center">
+    <h2>Organization - Frontend Module Structure</h2>
+<pre class="prettyprint" style="display: inline-block; width: 500px; text-align: left;">
+/*
+  Tracks the number of times an element is clicked
+*/
+(function($,BI,undefined) {
+  var $el;
+
+  //tracks # of times $el is clicked
+  var count = 0;
+
+  function trackClick() {
+    count++;
+    return false; //stop prop & prev def
+  }
+
+  function init() {
+    getEls();
+    if (!$el) { return; }
+
+    bindDOM();
+  }
+
+  function getEls() {
+    $el = $('.selector');
+  }
+
+  function bindDOM() {
+    $el.on('click','.selector',trackClick)
+  }
+
+  //onReady init
+  $(init);
+}(jQuery,BI))
+</pre>
+    <div style="display: inline-block; width: 550px;">
+      <h3 class="animStep">IIFE-Module (revealing if necessary)</h3>
+      <h3 class="animStep">onReady init</h3>
+      <h3 class="animStep">$element & scope</h3>
+      <h3 class="animStep">check and return before bind</h3>
+      <h3 class="animStep">event delegation</h3>
+    </div>
   </div>
 
 
   <div class="slide">
-    <h2>The Solution</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">By using the Revealing Module Pattern and writing Library Plugins we can utilize the standardized features of Knockout.js to create a Consistent Frontend Codebase.</h2>
-      <h3 class="animStep">Revealing Module Pattern</h3>
-      <h3 class="animStep">Library Plugins</h3>
-      <h3 class="animStep">Knockout.js</h3>
-  </div>
-  
-  <div class="slide">
-    <h2>The Scope</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Providing a JS framework for the User-Facing Frontend, and a JS/HTML/CSS Framework for the CMS</h2>
-      <h3 class="animStep">Cleaning up all javascript code</h3>
-      <h3 class="animStep">Providing a blackbox for CMS functionality</h3>
-      <h3 class="animStep">Simple integration points with existing code</h3>
-  </div>
+    <h2>Conventions</h2>
+    <h3>$var names for jQuery-extended DOM elements</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+(function($,BI,undefined) {
+  var $el;
+
+  //tracks # of times $el is clicked
+  var count = 0;
+
+  ...
+}(jQuery,BI))
+</pre>
+</div>
+
 
   <div class="slide">
-    <h2>Changes</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">How does this effect day-to-day coding?</h2>
-      <h3 class="animStep">New CMS forms should be written using knockout</h3> <!-- controllers provide & accept json -->
-      <h3 class="animStep">New CMS components should be written as jQuery plugins w/ knockout adapters</h3> <!-- modify form fields-->
-      <h3 class="animStep">Library code should be namespaced appropriately in the BI hierarchy</h3>
+    <h2>Conventions</h2>
 
-      <h3 class="animStep">No more generating CMS forms with PHP</h3>
-      <h3 class="animStep">All non-library JS components should be encapsulated into modules</h3> <!-- no more inline, etc -->
-  </div>  
+    <h3>Store data with data-name attributes, rels, or non-standard attributes (no ids or classes)</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+&lt;span data-id="12345"&gt;&lt;/span&gt;
 
-  <ul class="slide_list">
+&lt;span rel="12345"&gt;&lt;/span&gt;
 
-  </ul>
+&lt;span id="12345"&gt;&lt;/span&gt;
+</pre>
+  </div>
+
+
+  <div class="slide">
+    <h2>Conventions</h2>
+
+    <h3>Declare functions without var unless they are mutable</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+(function() {
+  var callback = function() {
+    return true;
+  }
+
+  function doSomething(cb) {
+    if (cb) { callback = cb; }
+  }
+}())
+</pre>
+  </div>
+
+
+  <div class="slide">
+    <h2>Conventions</h2>
+
+    <h3>Only chain related method calls</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+(function() {
+  var $el;
+
+  function init() {
+    getEls();
+  }
+
+  function getEls() {
+    $el = $('.selector');
+
+    $el.css('top',1000);
+    $el.hide().slideDown();
+  }
+
+  $(init);
+}())
+</pre>
+  </div>
+
+  <div class="slide">
+    <h2>Conventions</h2>
+    <h3>Do not line up declarations or chaning, and use var for each declaration</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+  var $el;
+
+  var x = 1;
+  var something = 2;
+  var myObj = {
+    property: '1a2d3',
+    array: [],
+    nestedObject: {
+
+    }
+  };
+</pre>
+  </div>
+
+  <div class="slide">
+    <h2>Conventions</h2>
+
+    <h3>Ternarys are okay, as long as they aren't nested.</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+ var x = y ? y : default;
+</pre>
+  <h3 class="animStep">Use parens to clarify anything more complex than truthyness checks</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+  var x = (typeof y !== 'undefined') ? y : default;
+</pre>
+  </div>
+
+
+  <div class="slide">
+    <h2>Conventions</h2>
+
+    <h3>Always use brackets for conditionals (even if they are one-liners)</h3>
+<pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
+  if (!$el) { return; }
+</pre>
+  </div>
+
+  <div class="slide">
+    <h2>Conventions</h2>
+
+    <h3>Inside event handlers, explictly call e.preventDefault or e.stopPropagation, or comment your return false</h3>
+<pre class="prettyprint">
+/*
+  Tracks the number of times an element is clicked
+*/
+(function($,BI,undefined) {
+  var $el;
+
+  //tracks # of times $el is clicked
+  var count = 0;
+
+  function trackClick() {
+    count++;
+    return false; //stop prop & prev def
+  }
+
+  function init() {
+    getEls();
+    if (!$el) { return; }
+
+    bindDOM();
+  }
+
+  function getEls() {
+    $el = $('.selector');
+  }
+
+  function bindDOM() {
+    $el.on('click','.selector',trackClick)
+  }
+
+  //onReady init
+  $(init);
+}(jQuery,BI))
+</pre>
+  </div>
+
+
+  <div class="slide">
+    <h2>Conventions - In General</h2>
+
+    <img src="img/js_good_parts.gif" />
+    <h3>jsFormat</h3>
+    <h3>submlimeLinter</h3>
+  </div>
+
+  <div class="slide">
+    <h2>Sanity - Elements and Events</h2>
+
+    <h3 class="animStep">Getting dom elements should ONLY be done once</h3><br />
+    <h3 class="animStep">Avoid .parent() .siblings() .next() - if you must use these, use a selector</h3><br /><br /><br />
+
+    <h3 class="animStep">onClick handlers are evil</h3><br />
+    <h3 class="animStep">Use conditional checks in event handlers instead of unbinding/rebinding when state changes</h3><br />
+    <h3 class="animStep">Use amplify to communicate between components (don't clutter BI)</h3><br />
+  </div>
+
+  <div class="slide">
+    <h2>Sanity - Templating</h2>
+
+    <h3 class="animStep">Don't render markup that has no value without JS.</h3><br />
+    <h3 class="animStep">Templates should be run through BI.template or jquery tpl</h3><br />
+
+    <h3 class="animStep">No string-based templates in javascript longer than single-elements</h3><br />
+
+    <h3 class="animStep">addJS in controllers is only for passing data you need before pageload - not including scripts</h3><br />
+
+    <h3 class="animStep">When in doubt, create a route, and use an ajax call</h3><br />
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul class="slide_list"></ul>
   <button>List</button>
-  </body>
+</body>
 </html>
