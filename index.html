@@ -107,7 +107,7 @@
 
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - variables</h2>
     <h3>$var names for jQuery-extended DOM elements</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
 (function($,BI,undefined) {
@@ -123,7 +123,7 @@
 
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - data</h2>
 
     <h3>Store data with data-name attributes, rels, or non-standard attributes (no ids or classes)</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
@@ -137,7 +137,7 @@
 
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - functions</h2>
 
     <h3>Declare functions without var unless they are mutable</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
@@ -155,7 +155,7 @@
 
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - jQuery methods</h2>
 
     <h3>Only chain related method calls</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
@@ -179,8 +179,8 @@
   </div>
 
   <div class="slide">
-    <h2>Conventions</h2>
-    <h3>Do not line up declarations or chaning, and use var for each declaration</h3>
+    <h2>Conventions - declarations</h2>
+    <h3>Do not line up declarations or chaining, and use var for each declaration</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
   var $el;
 
@@ -193,17 +193,21 @@
 
     }
   };
+
+  $el.hide();
+  $el.SlideDown();
+  $el.fadeOut();
 </pre>
   </div>
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - conditionals</h2>
 
-    <h3>Ternarys are okay, as long as they aren't nested.</h3>
+    <h3>Ternaries are okay, as long as they aren't nested.</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
  var x = y ? y : default;
 </pre>
-  <h3 class="animStep">Use parens to clarify anything more complex than truthyness checks</h3>
+  <h3 class="animStep">Use parentheses to clarify anything more complex than truthyness checks</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
   var x = (typeof y !== 'undefined') ? y : default;
 </pre>
@@ -211,7 +215,7 @@
 
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - conditionals</h2>
 
     <h3>Always use brackets for conditionals (even if they are one-liners)</h3>
 <pre class="prettyprint animStep" style="width: 500px; margin: 20px auto;">
@@ -220,9 +224,9 @@
   </div>
 
   <div class="slide">
-    <h2>Conventions</h2>
+    <h2>Conventions - event handlers</h2>
 
-    <h3>Inside event handlers, explictly call e.preventDefault or e.stopPropagation, or comment your return false</h3>
+    <h3>Inside event handlers, explicitly call e.preventDefault or e.stopPropagation, or comment your return false</h3>
 <pre class="prettyprint">
 /*
   Tracks the number of times an element is clicked
@@ -274,7 +278,7 @@
     <h3 class="animStep">Getting dom elements should ONLY be done once</h3><br />
     <h3 class="animStep">Avoid .parent() .siblings() .next() - if you must use these, use a selector</h3><br /><br /><br />
 
-    <h3 class="animStep">onClick handlers are evil</h3><br />
+    <h3 class="animStep">inline onClick handlers are evil</h3><br />
     <h3 class="animStep">Use conditional checks in event handlers instead of unbinding/rebinding when state changes</h3><br />
     <h3 class="animStep">Use amplify to communicate between components (don't clutter BI)</h3><br />
   </div>
@@ -291,13 +295,27 @@
 
     <h3 class="animStep">When in doubt, create a route, and use an ajax call</h3><br />
 
+    <h3 class="animStep">Always return JSON then template, never return markup.</h3><br />
+
+  </div>
+
+  <div class="slide">
+    <h2>Next Steps...</h2><br />
+    <h3>Move all frontend JS into modules and refactor (update jQuery)</h3><br />
+    <h3>Remove remaining onClick (mainly analytics)</h3><br />
+    <h3>Remove ALL global vars/functions except BI (post)</h3><br />
+    <h3>CMS Minification and file-list consolidation (everything-everywhere)</h3><br />
+
+    <h3>Frontend documentation</h3>
   </div>
 
 
 
 
-
-
+  <div class="slide">
+    <h2>Thanks</h2>
+    <h3>http://www.aarontidwell.com/jspresentation/presenter</h3>
+  </div>
 
 
 
