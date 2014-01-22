@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Frontend V2</title>
+    <title>CMS Fork</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css" /> 
     <link rel="stylesheet" type="text/css" href="css/style.css" /> 
     <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
@@ -16,46 +16,59 @@
   <body onload="prettyPrint();">
   
   <div class="slide">
-    <h2>Frontend V2</h2>
+    <h2>CMS Fork</h2>
     <img src="img/logo-bi.png" />
-    <h3>Organizational Patterns, Reusable DOM Components, Consistent Code Base</h3>
+    <h3 class="animStep">Seamless Decoupling</h3>
+    <h3 class="animStep">Split the codebase without breaking anything.</h3>
   </div>
    
   <div class="slide">
-    <h2>The Problem</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Lack of a global organizational pattern makes it difficult to reuse great DOM components, resulting in a glut of very different code doing the same thing.</h2>
-      <h3 class="animStep">Organizational Patterns</h3>
-      <h3 class="animStep">Reusable DOM Components</h3>
-      <h3 class="animStep">Consistant Code Base</h3>
+    <h2>The Goals</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">All content needs to be easily consumed.</h3>
+    <h3 class="animStep">Split CMS from Presentation</h3>
+    <h3 class="animStep">Minimize cross-contamination (html, embeds, video, etc)</h3>
   </div>
 
-
   <div class="slide">
-    <h2>The Solution</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">By using the Revealing Module Pattern and writing Library Plugins we can utilize the standardized features of Knockout.js to create a Consistent Frontend Codebase.</h2>
-      <h3 class="animStep">Revealing Module Pattern</h3>
-      <h3 class="animStep">Library Plugins</h3>
-      <h3 class="animStep">Knockout.js</h3>
+    <h2>The Problem&#8482;</h2>
+    <h3 class="animStep" style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Presentation is part of the cms.</h2>
+      <h3 class="animStep" style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Administration is part of the frontend.</h2>
   </div>
   
   <div class="slide">
-    <h2>The Scope</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Providing a JS framework for the User-Facing Frontend, and a JS/HTML/CSS Framework for the CMS</h2>
-      <h3 class="animStep">Cleaning up all javascript code</h3>
-      <h3 class="animStep">Providing a blackbox for CMS functionality</h3>
-      <h3 class="animStep">Simple integration points with existing code</h3>
+    <h2>Solution Time!</h2>
+    <h3 class="animStep" style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">API exposes "raw" mongo data</h2>
+      <h3 class="animStep">Frontend consumor</h3>
+      <h3 class="animStep">CMS consumor</h3>
+      <h3 class="animStep">BII consumor</h3>
+      <h3 class="animStep">Other consumors</h3>
+
+      <h3 class="animStep">That's the end goal but...</h3>
+  </div>  
+
+  <div class="slide">
+    <h2>No BIG Rewrites</h2>
+    <h3 class="animStep">2 Apps</h3>
+    <h3 class="animStep">Split deploys</h3>
+    <h3 class="animStep">Parallel API development</h3>
+    <h3 class="animStep">cms.businessinsider.com</h3>
   </div>
 
   <div class="slide">
-    <h2>Changes</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">How does this effect day-to-day coding?</h2>
-      <h3 class="animStep">New CMS forms should be written using knockout</h3> <!-- controllers provide & accept json -->
-      <h3 class="animStep">New CMS components should be written as jQuery plugins w/ knockout adapters</h3> <!-- modify form fields-->
-      <h3 class="animStep">Library code should be namespaced appropriately in the BI hierarchy</h3>
+    <h2>Paths for CMS</h2>
+    <h3 class="animStep" style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Presentation is part of the cms.</h2>
+    <h3 class="animStep">A. Fork the codebase, strip both (zend frontend, zend CMS)</h3>
+    <h3 class="animStep">B. Replace the CMS, fallback through proxy, strip the zend frontend</h3>
+    <h3 class="animStep">&#937;. Piecemeal the API</h3>
+  </div>
 
-      <h3 class="animStep">No more generating CMS forms with PHP</h3>
-      <h3 class="animStep">All non-library JS components should be encapsulated into modules</h3> <!-- no more inline, etc -->
-  </div>  
+  <div class="slide">
+    <h2>Paths for Frontend</h2>
+    <h3 class="animStep" style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Administration is part of the frontend.</h2>
+    <h3 class="animStep">A. JS "enhancement suite", expanding on refactor abstractions</h2>
+    <h3 class="animStep">&#937;. Piecemeal the API</h3>
+  </div>
+
 
   <ul class="slide_list">
 
