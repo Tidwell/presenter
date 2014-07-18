@@ -279,3 +279,7 @@ pre.pretty-center.prettyprint {
   margin: 20px;
   float: right;
 }
+.blockimg {
+  display: block;
+  margin: 0 auto;
+}

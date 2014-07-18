@@ -153,6 +153,154 @@
     <a href="http://jsfiddle.net/98S4W/1/" target="_new" class="example-link">Working Example</a>
   </div>
 
+  <div class="slide">
+    <h2>How do you organize all that?</h2>
+    <div class="animStep">
+      <h3 class="">$ yo angular</h3>
+      <img class="blockimg" src="img/yofiles.png" />
+    </div>
+    <div class="animStep">
+      <h3 class="">meanjs modules system</h3>
+      <img class="blockimg" src="img/meanfiles.png" />
+    </div>
+  </div>
+  <div class="slide">
+    <h2>Hybrid</h2>
+    <div class="animStep pretty-center">
+      <img class="blockimg" src="img/cmsfiles.png" style="float: left; margin-right: 50px;" />
+      <ul>
+        <li class="animStep">Keep the top level scripts/* for the application</li>
+        <li class="animStep">Create modules/**/* for components</li>
+        <li class="animStep">Each module folder has its own controllers, services, tests, views, etc</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide">
+    <br />
+    <img src="img/logo.5674.png" />
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Angular app scaffolding tool.
+    </h3>
+    <h3 class="animStep">Quickly create directives, services, controllers, and filters, and more</h3>
+    <h3 class="animStep">Easy to exted and create our own scaffolding tools</h3>
+    <br />
+    <br />
+    <pre class="animStep pretty-center" style="text-align: left">
+      $ yo angular:directive post
+    </pre>
+  </div>
+
+  <div class="slide">
+    <br />
+    <h2>Bower</h2>
+    <img src="img/bower-logo.png" style="height: 100px;"/>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Client-side package manager.
+    </h3>
+    <h3 class="animStep">Automatic dependancy resolution</h3>
+    <h3 class="animStep">Version-aware lib managment</h3>
+    <h3 class="animStep">No more vendor mess</h3>
+    <br />
+    <br />
+    <pre class="animStep pretty-center" style="text-align: left">
+      $ bower install jquery
+    </pre>
+  </div>
+
+  <div class="slide">
+    <br />
+    <img src="img/grunt-logo.png" style="height: 200px;"/>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Javscript Task Runner.
+    </h3>
+    <h3 class="animStep">Live reload</h3>
+    <h3 class="animStep">File watching</h3>
+    <h3 class="animStep">Automatic test-running</h3>
+    <h3 class="animStep">Build</h3>
+    <br />
+    <br />
+    <pre class="pretty-center" style="text-align: left">
+      <div class="animStep">$ grunt serve</div>
+      <div class="animStep">$ grunt test</div>
+      <div class="animStep">$ grunt build</div>
+    </pre>
+  </div>
+
+  <div class="slide">
+    <br />
+    <img src="img/jasmine_vertical.png" style="height: 100px;"/>
+    <br />
+    <img src="img/karma-logo.png" style="height: 50px;"/>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Test & Test Runner.
+    </h3>
+    <h3 class="animStep">Fully supports angular DI</h3>
+    <h3 class="animStep">Automates with Jenkins</h3>
+    <br />
+    <pre class="animStep prettyprint lang-js pretty-center">
+      it('post should expose a get method', function() {
+        expect(Post.get).toBeDefined();
+      });
+    </pre>
+  </div>
+
+  <div class="slide">
+    <h2>ngDocs</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Documentation Generator.
+    </h3>
+    <h3 class="animStep">Javadoc style syntax</h3>
+    <h3 class="animStep">Angular-like documentation</h3>
+    <h3 class="animStep">Disqus integration</h3>
+    <br />
+    <pre class="animStep pretty-center" style="width: 1000px; max-width: 1200px;">
+      /**
+       * @ngdoc method
+       *
+       * @name useCredentials
+       * @methodOf auth.Auth
+       *
+       * @description
+       * Pulls a service's auth data from local storage and configures $http's headers to send the auth data.
+       * If auth data is found in localstorage, but has not been cached, will also store it in allCredentials.
+       *
+       * @param {string} service The name of the service to switch to
+       * @returns {boolean} If the credentials were set or not
+       */
+    </pre>
+  </div>
+
+  <div class="slide">
+    <h2>Lets look at the repo...</h2>
+    <div class="animStep" style="text-align: center;">
+      https://github.com/businessinsider/unified-cms-frontend
+    </div>
+
+    <pre class="pretty-center" style="text-align: left">
+      <div class="animStep">$ npm install</div>
+      <div class="animStep">$ bower install</div>
+      <div class="animStep">$ grunt serve</div>
+    </pre>
+
+    <h2 class="animStep">And then...</h2>
+    <h3 class="animStep">Live Reload & watch server @ http://localhost:9000</h3>
+    <h3 class="animStep">Dummy backend server @ http://localhost:3000</h3>
+  </div>
+
+  <div class="slide">
+    <h2>Whats done?</h2>
+
+    <h3 class="animStep">Auth/User - High level abstraction for "Login"</h3>
+    <h3 class="animStep">Support for Authentication and Accept-Site headers</h3>
+    <h3 class="animStep">Basic Post Editor</h3>
+    <h3 class="animStep">Mock Backend</h3>
+    <h3 class="animStep">100% Test Coverage</h3>
+    <h3 class="animStep">100% Documentation</h3>
+    <h3 class="animStep">Jenkins Integration</h3>
+    <h3 class="animStep">Working Build Process</h3>
+  </div>
+
   <ul class="slide_list">
 
   </ul>
