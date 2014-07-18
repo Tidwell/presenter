@@ -1,61 +1,157 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Frontend V2</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css" /> 
-    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    <title>Unified CMS - Frontend</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&v2' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="prettify/prettify.css" /> 
-    
+    <link rel="stylesheet" type="text/css" href="prettify/prettify.css" />
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/hashchange.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="prettify/prettify.js"></script>
   </head>
   <body onload="prettyPrint();">
-  
+
   <div class="slide">
-    <h2>Frontend V2</h2>
+    <h2>Unified CMS - Frontend</h2>
     <img src="img/logo-bi.png" />
-    <h3>Organizational Patterns, Reusable DOM Components, Consistent Code Base</h3>
-  </div>
-   
-  <div class="slide">
-    <h2>The Problem</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Lack of a global organizational pattern makes it difficult to reuse great DOM components, resulting in a glut of very different code doing the same thing.</h2>
-      <h3 class="animStep">Organizational Patterns</h3>
-      <h3 class="animStep">Reusable DOM Components</h3>
-      <h3 class="animStep">Consistant Code Base</h3>
-  </div>
-
-
-  <div class="slide">
-    <h2>The Solution</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">By using the Revealing Module Pattern and writing Library Plugins we can utilize the standardized features of Knockout.js to create a Consistent Frontend Codebase.</h2>
-      <h3 class="animStep">Revealing Module Pattern</h3>
-      <h3 class="animStep">Library Plugins</h3>
-      <h3 class="animStep">Knockout.js</h3>
-  </div>
-  
-  <div class="slide">
-    <h2>The Scope</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">Providing a JS framework for the User-Facing Frontend, and a JS/HTML/CSS Framework for the CMS</h2>
-      <h3 class="animStep">Cleaning up all javascript code</h3>
-      <h3 class="animStep">Providing a blackbox for CMS functionality</h3>
-      <h3 class="animStep">Simple integration points with existing code</h3>
+    <h3>Topic1, topic2, topic3</h3>
   </div>
 
   <div class="slide">
-    <h2>Changes</h2>
-    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">How does this effect day-to-day coding?</h2>
-      <h3 class="animStep">New CMS forms should be written using knockout</h3> <!-- controllers provide & accept json -->
-      <h3 class="animStep">New CMS components should be written as jQuery plugins w/ knockout adapters</h3> <!-- modify form fields-->
-      <h3 class="animStep">Library code should be namespaced appropriately in the BI hierarchy</h3>
+    <h2>Goal</h2>
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      Use modern tools and frameworks to build a consistant and easily modified multi-site CMS frontend.
+    </h3>
+    <h3 class="animStep">angular - framework</h3>
+    <h3 class="animStep">yeoman - scaffolding</h3>
+    <h3 class="animStep">bower - package managment</h3>
+    <h3 class="animStep">grunt - build tool</h3>
+    <h3 class="animStep">karma - test runner</h3>
+    <h3 class="animStep">jasmine - test descriptor</h3>
+    <h3 class="animStep">ngdocs - documentation generator</h3>
+  </div>
 
-      <h3 class="animStep">No more generating CMS forms with PHP</h3>
-      <h3 class="animStep">All non-library JS components should be encapsulated into modules</h3> <!-- no more inline, etc -->
-  </div>  
+
+  <div class="slide">
+    <h2>Thats a lot of stuff...</h2>
+    <h3 class="animStep">How does each piece solve a problem?</h3>
+  </div>
+
+  <div class="slide">
+    <h2>Angular.js</h2>
+    <img src="img/AngularJS-large.png" />
+    <h3 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;">
+      The best single-page-app framework. Evar.
+    </h3>
+    <h3 class="animStep">Declarative data-binding</h3>
+    <h3 class="animStep">Dependancy injected everything</h3>
+    <h3 class="animStep">Clear separation of concerns</h3>
+  </div>
+
+  <div class="slide">
+    <h2>Angular in 10 minutes</h2>
+    <div class="animStep">
+      <h2>Services</h2>
+      <h3>data stores, persistance, business logic</h3>
+    </div>
+    <br />
+    <div class="animStep">
+      <h2>Controllers</h2>
+      <h3>service consumers, view managers</h3>
+    </div>
+    <br />
+    <div class="animStep">
+      <h2>Directives</h2>
+      <h3>view widgets</h3>
+    </div>
+    <br />
+    <div class="animStep">
+      <h2>Filters</h2>
+      <h3>view helpers</h3>
+    </div>
+  </div>
+
+  <div class="slide">
+    <h2>Services / Controller interaction</h2>
+    <h3>Define a Service</h3>
+    <pre class="prettyprint lang-js pretty-center">
+    var app = angular.module('myapp', []);
+
+    app.factory('User', function(){
+      var user = { name: 'Bob', age: 30 };
+
+      return {
+        get: function() { return user; }
+      };
+    });
+    </pre>
+
+    <h3>Use in a controller</h3>
+    <pre class="prettyprint lang-js pretty-center">
+    app.controller('ProfileController', function($scope, User) {
+      $scope.user = User.get();
+    });
+    </pre>
+
+    <h3>Visible in a template</h3>
+    <pre class="prettyprint lang-html pretty-center">
+      &lt;div ng-app="myapp"&gt;
+        &lt;div ng-controller="ProfileController"&gt;
+          &lt;div&gt;{{user}}&lt;/div&gt;
+          &lt;input type="text" ng-model="user.name" /&gt;
+          &lt;input type="text" ng-model="user.age" /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    </pre>
+    <a href="http://jsfiddle.net/C4yzM/" target="_new" class="example-link">Working Example</a>
+  </div>
+
+  <div class="slide">
+    <h2>Directives</h2>
+    <pre class="prettyprint lang-js pretty-center">
+      app.directive('profileEditor', function() {
+        return {
+          restrict: 'E',
+          template: '&lt;div&gt;{{user}}&lt;/div&gt; \
+          &lt;input type="text" ng-model="user.name" /&gt; \
+          &lt;input type="text" ng-model="user.age" /&gt;'
+        };
+      });
+    </pre>
+    <pre class="prettyprint lang-html pretty-center">
+      &lt;div ng-app="myapp"&gt;
+        &lt;div ng-controller="ProfileController"&gt;
+          &lt;profile-editor&gt;&lt;/profile-editor&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    </pre>
+    <a href="http://jsfiddle.net/nExWA/1/" target="_new" class="example-link">Working Example</a>
+  </div>
+
+  <div class="slide">
+    <h2>Filters</h2>
+    <pre class="prettyprint lang-js pretty-center wide">
+      app.filter('paddedNumber', function() {
+          return function(input) {
+            return String(input).indexOf('.') > -1 ? input : input + '.00' ;
+          };
+      });
+    </pre>
+    <pre class="prettyprint lang-html pretty-center">
+      &lt;div ng-app="myapp"&gt;
+        &lt;div ng-controller="ProfileController"&gt;
+          &lt;profile-editor&gt;&lt;/profile-editor&gt;
+          {{ user.age | paddedNumber }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    </pre>
+
+    <a href="http://jsfiddle.net/98S4W/1/" target="_new" class="example-link">Working Example</a>
+  </div>
 
   <ul class="slide_list">
 

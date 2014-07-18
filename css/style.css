@@ -4,8 +4,8 @@ body {
 .slide {
   color: white;
   position: relative;
-  display: none;			
-  line-height: 1.5em;		
+  display: none;
+  line-height: 1.5em;
 }
 
 .slide h2 {
@@ -44,7 +44,7 @@ body {
   padding: 5px 0px 20px 20px;
   margin: 0 auto 20px;
   width: 600px;
-  
+
 }
 .slide li {
   margin: 10px;
@@ -261,4 +261,21 @@ button:hover {
 }
 .slide_list li:hover {
   font-weight: bold;
+}
+
+pre.pretty-center.prettyprint {
+  padding: 20px 0 10px 0;
+}
+.pretty-center {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.pretty-center.wide {
+  width: 700px;
+}
+
+.example-link {
+  margin: 20px;
+  float: right;
 }
