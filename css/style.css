@@ -283,3 +283,7 @@ pre.pretty-center.prettyprint {
   display: block;
   margin: 0 auto;
 }
+
+.link-page a {
+  color: #33CCFF;
+}
